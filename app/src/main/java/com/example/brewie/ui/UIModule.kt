@@ -6,6 +6,7 @@ import com.example.brewie.ui.brewdetails.BrewDetailsPresenter
 import dagger.Module
 import dagger.Provides
 import com.example.brewie.ui.main.MainPresenter
+import com.example.brewie.ui.newbrew.NewBrewPresenter
 import java.util.concurrent.Executor
 import java.util.concurrent.Executors
 import javax.inject.Singleton
@@ -23,6 +24,10 @@ class UIModule(private val context: Context) {
     @Provides
     @Singleton
     fun brewDetailsPresenter() = BrewDetailsPresenter()
+
+    @Provides
+    @Singleton
+    fun newBrewPresenter() = NewBrewPresenter()
 
     @Provides
     @Singleton

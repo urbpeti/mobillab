@@ -32,6 +32,10 @@ class MainPresenter @Inject constructor(private val executor: Executor, private 
         screen?.showBrewDetails()
     }
 
+    fun showNewBrew() {
+        screen?.showNewBrew()
+    }
+
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onEventMainThread(event: GetBeersEvent) {
         if (event.throwable != null) {

@@ -25,6 +25,10 @@
                 android:name=".ui.brewdetails.BrewDetailsActivity"
                 android:label="@string/brewdetails_name">
         </activity>
+        <activity
+                android:name=".ui.newbrew.NewBrewActivity"
+                android:label="@string/newbrew_name">
+        </activity>
     </application>
 
 </manifest>

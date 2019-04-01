@@ -6,6 +6,7 @@ import dagger.Component
 import com.example.brewie.ui.UIModule
 import com.example.brewie.ui.brewdetails.BrewDetailsActivity
 import com.example.brewie.ui.main.MainActivity
+import com.example.brewie.ui.newbrew.NewBrewActivity
 import javax.inject.Singleton
 
 @Singleton
@@ -13,4 +14,5 @@ import javax.inject.Singleton
 interface BrewieApplicationComponent {
     fun inject(mainActivity: MainActivity)
     fun inject(brewDetailsActivity: BrewDetailsActivity)
+    fun inject(newBrewActivity: NewBrewActivity)
 }

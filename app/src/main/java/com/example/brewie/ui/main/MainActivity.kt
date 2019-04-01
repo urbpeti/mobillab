@@ -8,6 +8,7 @@ import com.example.brewie.R
 import com.example.brewie.injector
 import com.example.brewie.model.Beer
 import com.example.brewie.ui.brewdetails.BrewDetailsActivity
+import com.example.brewie.ui.newbrew.NewBrewActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
@@ -22,7 +23,8 @@ class MainActivity : AppCompatActivity(), MainScreen {
         injector.inject(this)
 
         btnShowBrews.setOnClickListener { mainPresenter.refreshBrews("TODO") }
-        btnShowDetails.setOnClickListener { mainPresenter.showBrewDetails()}
+        btnShowDetails.setOnClickListener { mainPresenter.showBrewDetails() }
+        btnAddNewBrew.setOnClickListener { mainPresenter.showNewBrew() }
     }
 
     override fun onStart() {
@@ -45,6 +47,10 @@ class MainActivity : AppCompatActivity(), MainScreen {
 
     override fun showBrewDetails() {
         startActivity(Intent(this, BrewDetailsActivity::class.java))
+    }
+
+    override fun showNewBrew() {
+        startActivity(Intent(this, NewBrewActivity::class.java))
     }
 
     override fun showNetworkError(errorMsg: String) {
