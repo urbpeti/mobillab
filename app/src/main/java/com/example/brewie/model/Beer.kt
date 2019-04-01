@@ -38,7 +38,7 @@ data class Beer(
     @SerializedName("method")
     var method: Any? = null,
     @SerializedName("ingredients")
-    var ingredients: List<Any>? = null,
+    var ingredients: Any? = null,
     @SerializedName("food_pairing")
     var food_pairing: List<String>? = null,
     @SerializedName("brewers_tips")

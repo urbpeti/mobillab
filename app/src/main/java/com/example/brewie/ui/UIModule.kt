@@ -1,6 +1,7 @@
 package com.example.brewie.ui
 
 import android.content.Context
+import com.example.brewie.interactor.brews.BrewsInteractor
 import dagger.Module
 import dagger.Provides
 import com.example.brewie.ui.main.MainPresenter
@@ -16,7 +17,7 @@ class UIModule(private val context: Context) {
 
     @Provides
     @Singleton
-    fun mainPresenter() = MainPresenter()
+    fun mainPresenter(executor: Executor, brewsInteractor: BrewsInteractor) = MainPresenter(executor, brewsInteractor)
 
 
     @Provides

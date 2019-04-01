@@ -27,6 +27,7 @@
             android:layout_height="wrap_content"
             android:text="@string/button_show_brews" />
     <TextView
+            android:id="@+id/tarea"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Hello world"
