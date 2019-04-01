@@ -28,6 +28,10 @@ class MainPresenter @Inject constructor(private val executor: Executor, private 
         }
     }
 
+    fun showBrewDetails() {
+        screen?.showBrewDetails()
+    }
+
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onEventMainThread(event: GetBeersEvent) {
         if (event.throwable != null) {
@@ -40,7 +44,6 @@ class MainPresenter @Inject constructor(private val executor: Executor, private 
                 if (event.brews != null) {
                     screen?.showBrews(event.brews as MutableList<Beer>)
                 }
-
             }
         }
     }

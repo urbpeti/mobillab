@@ -22,10 +22,20 @@
     </android.support.design.widget.TextInputLayout>
 
     <Button
-            android:id="@+id/btnShowArtists"
-            android:layout_width="wrap_content"
+            android:id="@+id/btnShowBrews"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/button_show_brews" />
+    <Button
+            android:id="@+id/btnShowDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Go details" />
+    <Button
+            android:id="@+id/btnAddNewBrew"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="New brew" />
     <TextView
             android:id="@+id/tarea"
             android:layout_width="match_parent"

@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Brewie</string>
-    <string name="artist_name">ArtistName</string>
+    <string name="artist_name">Brew</string>
     <string name="button_show_brews">Get Brews</string>
     <string name="action_settings">Settings</string>
+    <string name="brewdetails_name">Brew Details</string>
 </resources>
