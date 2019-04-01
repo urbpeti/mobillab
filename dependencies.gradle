@@ -33,6 +33,7 @@ ext {
 
     supportDependencies = [
             appcompat: "com.android.support:appcompat-v7:$support_version",
+            constaint_layout: "com.android.support.constraint:constraint-layout:1.1.3",
             cardview : "com.android.support:cardview-v7:$support_version",
             design   : "com.android.support:design:$support_version"
     ]
