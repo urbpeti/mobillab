@@ -11,11 +11,35 @@
               tools:context=".ui.newbrew.NewBrewActivity">
 
     <TextView
-            android:id="@+id/title"
+            android:id="@+id/nameText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="NEW BREW LAYOUT"
+            android:text="@string/name"
     />
+    <EditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/beer_name"
+    />
+    <TextView
+            android:id="@+id/alcoholText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/alcohol"
+    />
+    <EditText
+            android:id="@+id/alcohol"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Alc"
+            android:inputType="numberDecimal"
+    />
+    <Button
+            android:id="@+id/newBeerButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add" />
     <Button
             android:id="@+id/btnBack"
             android:layout_width="match_parent"

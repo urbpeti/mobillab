@@ -1,7 +1,10 @@
 <resources>
     <string name="app_name">Brewie</string>
     <string name="brewdetails_name">Brew Details</string>
-    <string name="newbrew_name">Brew Details</string>
+    <string name="name">Name</string>
+    <string name="alcohol">Alcohol</string>
+    <string name="beer_name">Beer name</string>
+    <string name="newbrew_name">New Brew</string>
     <string name="button_show_brews">Get Brews</string>
     <string name="action_settings">Settings</string>
 </resources>

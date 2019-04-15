@@ -20,7 +20,6 @@ abstract class BeerRoomDatabase : RoomDatabase() {
                 INSTANCE = Room.databaseBuilder(context.applicationContext, BeerRoomDatabase::class.java, "beer.db")
                     .build()
             }
-
             return INSTANCE!!
         }
     }
