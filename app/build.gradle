@@ -32,6 +32,8 @@ dependencies {
 
 
     implementation toolkitDependencies.okhttp
+    implementation toolkitDependencies.room
+    annotationProcessor toolkitDependencies.roomannotation
     implementation toolkitDependencies.logging
     implementation toolkitDependencies.retrofit
     implementation toolkitDependencies.retrofitGsonConverter

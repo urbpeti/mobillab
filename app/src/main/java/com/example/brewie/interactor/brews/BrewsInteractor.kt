@@ -12,9 +12,9 @@ class BrewsInteractor @Inject constructor(private var brewApi: BrewApi) {
         val event = GetBeersEvent()
 
         try {
-            val artistsQueryCall = brewApi.getBeers(1,10)
+            val brewQueryCall = brewApi.getBeers(1,10)
 
-            val response = artistsQueryCall.execute()
+            val response = brewQueryCall.execute()
             Log.d("Reponse", response.body().toString())
             if (response.code() != 200) {
                 throw Exception("Result code is not 200")
