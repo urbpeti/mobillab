@@ -4,7 +4,8 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.example.brewie.R
 import com.example.brewie.injector
-import kotlinx.android.synthetic.main.activity_brewdetails.*
+import com.example.brewie.model.Beer
+import kotlinx.android.synthetic.main.activity_newbrew.*
 import javax.inject.Inject
 
 class NewBrewActivity: AppCompatActivity(), NewBrewScreen {
@@ -18,6 +19,8 @@ class NewBrewActivity: AppCompatActivity(), NewBrewScreen {
         injector.inject(this)
 
         btnBack.setOnClickListener { this.finish() }
+
+        newBeerButton.setOnClickListener { addBrew() }
     }
 
     override fun onStart() {
@@ -28,5 +31,17 @@ class NewBrewActivity: AppCompatActivity(), NewBrewScreen {
     override fun onStop() {
         super.onStop()
         newBrewPresenter.detachScreen()
+    }
+
+    override fun addBrew() {
+        if(name.text != null && alcohol.text != null) {
+            val alcoholValue = if (alcohol.text.toString() == "") "0" else alcohol.text.toString()
+            newBrewPresenter.addBrew(
+                Beer(
+                    name = name.text.toString(),
+                    abv = alcoholValue.toFloat()
+                )
+            )
+        }
     }
 }

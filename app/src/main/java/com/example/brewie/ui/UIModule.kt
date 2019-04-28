@@ -27,7 +27,7 @@ class UIModule(private val context: Context) {
 
     @Provides
     @Singleton
-    fun newBrewPresenter() = NewBrewPresenter()
+    fun newBrewPresenter(brewsInteractor: BrewsInteractor) = NewBrewPresenter(brewsInteractor)
 
     @Provides
     @Singleton
