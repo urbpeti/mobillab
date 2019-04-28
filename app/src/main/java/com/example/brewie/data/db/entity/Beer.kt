@@ -1,4 +1,4 @@
-package com.example.brewie.dao
+package com.example.brewie.data.db.entity
 
 import android.arch.persistence.room.ColumnInfo
 import android.arch.persistence.room.Entity

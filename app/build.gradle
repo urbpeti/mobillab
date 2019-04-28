@@ -33,7 +33,7 @@ dependencies {
 
     implementation toolkitDependencies.okhttp
     implementation toolkitDependencies.room
-    annotationProcessor toolkitDependencies.roomannotation
+    kapt toolkitDependencies.roomannotation
     implementation toolkitDependencies.logging
     implementation toolkitDependencies.retrofit
     implementation toolkitDependencies.retrofitGsonConverter

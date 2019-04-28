@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import com.example.brewie.R
+import com.example.brewie.data.db.AppDatabase
 import com.example.brewie.injector
 import com.example.brewie.model.Beer
 import com.example.brewie.ui.brewdetails.BrewDetailsActivity
@@ -22,7 +23,15 @@ class MainActivity : AppCompatActivity(), MainScreen {
         setContentView(R.layout.activity_main)
         injector.inject(this)
 
-        btnShowBrews.setOnClickListener { mainPresenter.refreshBrews("TODO") }
+
+        btnShowBrews.setOnClickListener {
+            mainPresenter.refreshBrews("TODO")
+            val db = AppDatabase.getInstance(this@MainActivity)
+            val beerDao = db.beerDao()
+            beerDao.insert(com.example.brewie.data.db.entity.Beer(null, "test", "1", "1", 2f, "s"))
+            beerDao.getBeers()
+            beerDao.getBeer(1)
+        }
         btnShowDetails.setOnClickListener { mainPresenter.showBrewDetails() }
         btnAddNewBrew.setOnClickListener { mainPresenter.showNewBrew() }
     }
