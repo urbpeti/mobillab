@@ -24,14 +24,7 @@ class MainActivity : AppCompatActivity(), MainScreen {
         injector.inject(this)
 
 
-        btnShowBrews.setOnClickListener {
-            mainPresenter.refreshBrews("TODO")
-            val db = AppDatabase.getInstance(this@MainActivity)
-            val beerDao = db.beerDao()
-            beerDao.insert(com.example.brewie.data.db.entity.Beer(null, "test", "1", "1", 2f, "s"))
-            beerDao.getBeers()
-            beerDao.getBeer(1)
-        }
+        btnShowBrews.setOnClickListener { mainPresenter.refreshBrews("TODO") }
         btnShowDetails.setOnClickListener { mainPresenter.showBrewDetails() }
         btnAddNewBrew.setOnClickListener { mainPresenter.showNewBrew() }
     }
