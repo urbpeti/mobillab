@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity(), MainScreen {
         val llm = LinearLayoutManager(this@MainActivity)
         llm.orientation = LinearLayoutManager.VERTICAL
         beerList.layoutManager = llm
-        beerAdapter = BeerAdapter(this@MainActivity, displayedBeers)
+        beerAdapter = BeerAdapter(this@MainActivity, mainPresenter, displayedBeers)
         beerList.adapter = beerAdapter
 
 
@@ -57,8 +57,11 @@ class MainActivity : AppCompatActivity(), MainScreen {
         beerAdapter?.notifyDataSetChanged()
     }
 
-    override fun showBrewDetails() {
-        startActivity(Intent(this, BrewDetailsActivity::class.java))
+    override fun showBrewDetails(beer: Beer) {
+        val intent = Intent(this, BrewDetailsActivity::class.java)
+        intent.putExtra(KEY_BEER, beer.id)
+        intent.putExtra(KEY_BEER_MOCKED, beer.isMock)
+        startActivity(intent)
     }
 
     override fun showNewBrew() {
@@ -67,6 +70,11 @@ class MainActivity : AppCompatActivity(), MainScreen {
 
     override fun showNetworkError(errorMsg: String) {
         Toast.makeText(this, errorMsg, Toast.LENGTH_LONG).show()
+    }
+
+    companion object {
+        const val KEY_BEER = "KEY_BEER"
+        const val KEY_BEER_MOCKED = "KEY_BEER_MOCKED"
     }
 
 }

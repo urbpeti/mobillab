@@ -23,7 +23,7 @@ class UIModule(private val context: Context) {
 
     @Provides
     @Singleton
-    fun brewDetailsPresenter() = BrewDetailsPresenter()
+    fun brewDetailsPresenter(executor: Executor, brewsInteractor: BrewsInteractor) = BrewDetailsPresenter(executor, brewsInteractor)
 
     @Provides
     @Singleton

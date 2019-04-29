@@ -2,6 +2,7 @@ package com.example.brewie.interactor.brews
 
 import android.util.Log
 import com.example.brewie.data.db.dao.BeerDao
+import com.example.brewie.interactor.brews.event.GetBeerEvent
 import com.example.brewie.interactor.brews.event.GetBeersEvent
 import com.example.brewie.model.Beer
 import com.example.brewie.network.BrewApi
@@ -27,10 +28,14 @@ class BrewsInteractor @Inject constructor(private var brewApi: BrewApi, private 
                 abv = it.abv,
                 description = it.description,
                 image_url = it.imgUrl,
-                first_brewed = it.firstBrewed
+                first_brewed = it.firstBrewed,
+                isMock = true
             )}
 
-            val apiBeers = response.body()
+            val apiBeers = response.body()?.map {
+                it.isMock = false
+                it
+            }
             if (apiBeers == null) {
                 event.brews = mockBeers
             } else {
@@ -38,6 +43,32 @@ class BrewsInteractor @Inject constructor(private var brewApi: BrewApi, private 
             }
 
             event.code = response.code()
+            EventBus.getDefault().post(event)
+        } catch (e: Exception) {
+            event.throwable = e
+            EventBus.getDefault().post(event)
+        }
+    }
+
+    fun getBeer(id: Int, isMocked: Boolean) {
+        val event = GetBeerEvent()
+
+        try {
+            var beer: Beer? = null
+
+            val mockedBeer = beerDao.getBeer(id)
+            beer = Beer(
+                id = mockedBeer.id?.toInt(),
+                name = mockedBeer.name,
+                abv = mockedBeer.abv,
+                description = mockedBeer.description,
+                image_url = mockedBeer.imgUrl,
+                first_brewed = mockedBeer.firstBrewed,
+                isMock = true
+            )
+            event.isMocked = true
+
+            event.brew = beer
             EventBus.getDefault().post(event)
         } catch (e: Exception) {
             event.throwable = e

@@ -28,8 +28,8 @@ class MainPresenter @Inject constructor(private val executor: Executor, private 
         }
     }
 
-    fun showBrewDetails() {
-        screen?.showBrewDetails()
+    fun showBrewDetails(beer: Beer) {
+        screen?.showBrewDetails(beer)
     }
 
     fun showNewBrew() {

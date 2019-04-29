@@ -14,6 +14,7 @@ import kotlinx.android.synthetic.main.card_beer.view.*
 
 class BeerAdapter constructor(
     private val context: Context,
+    private val mainPresenter: MainPresenter,
     private var beers: List<Beer>) : RecyclerView.Adapter<BeerAdapter.ViewHolder>() {
 
 
@@ -32,6 +33,11 @@ class BeerAdapter constructor(
             }
         }
 
+        holder.itemView.setOnClickListener {
+            if(beer.isMock == true) {
+                mainPresenter.showBrewDetails(beer)
+            }
+        }
         holder.beerName.text = beer.name
         holder.beerAlcohol.text = beer.abv.toString()
     }

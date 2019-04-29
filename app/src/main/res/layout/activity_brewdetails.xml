@@ -11,10 +11,41 @@
               tools:context=".ui.brewdetails.BrewDetailsActivity">
 
     <TextView
-            android:id="@+id/title"
+            android:id="@+id/nameText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="BREW DETAILS LAYOUT"
+            android:text="@string/name"
+    />
+    <EditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/beer_name"
+    />
+    <TextView
+            android:id="@+id/imgUrlInputLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/imgUrlInputName"
+    />
+    <EditText
+            android:id="@+id/imgUrlInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/imgUrlInputName"
+    />
+    <TextView
+            android:id="@+id/alcoholText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/alcohol"
+    />
+    <EditText
+            android:id="@+id/alcohol"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Alc"
+            android:inputType="numberDecimal"
     />
     <Button
             android:id="@+id/btnBack"
