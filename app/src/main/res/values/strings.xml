@@ -7,4 +7,6 @@
     <string name="newbrew_name">New Brew</string>
     <string name="button_show_brews">Get Brews</string>
     <string name="action_settings">Settings</string>
+    <string name="imgUrlInputName">Image URL</string>
+
 </resources>

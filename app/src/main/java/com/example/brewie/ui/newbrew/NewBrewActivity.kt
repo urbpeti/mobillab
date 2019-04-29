@@ -39,6 +39,7 @@ class NewBrewActivity: AppCompatActivity(), NewBrewScreen {
             newBrewPresenter.addBrew(
                 Beer(
                     name = name.text.toString(),
+                    image_url = imgUrlInput.text.toString(),
                     abv = alcoholValue.toFloat()
                 )
             )

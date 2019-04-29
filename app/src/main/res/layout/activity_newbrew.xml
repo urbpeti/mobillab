@@ -23,6 +23,18 @@
             android:hint="@string/beer_name"
     />
     <TextView
+            android:id="@+id/imgUrlInputLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/imgUrlInputName"
+    />
+    <EditText
+            android:id="@+id/imgUrlInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/imgUrlInputName"
+    />
+    <TextView
             android:id="@+id/alcoholText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

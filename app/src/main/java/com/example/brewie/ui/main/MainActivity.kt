@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity(), MainScreen {
 
 
         swipeRefreshLayoutBeers.setOnRefreshListener { mainPresenter.refreshBrews("") }
+        btnAddNewBrew.setOnClickListener { mainPresenter.showNewBrew() }
     }
 
     override fun onStart() {
