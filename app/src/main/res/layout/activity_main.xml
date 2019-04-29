@@ -10,36 +10,23 @@
               android:paddingTop="16dp"
               tools:context=".ui.main.MainActivity">
 
-    <android.support.design.widget.TextInputLayout
+    <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRefreshLayoutBeers"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Brew">
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#FFFFFF">
 
-        <EditText
-                android:id="@+id/etArtist"
+        <android.support.v7.widget.RecyclerView
+                android:id="@+id/beerList"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
-    </android.support.design.widget.TextInputLayout>
 
-    <Button
-            android:id="@+id/btnShowBrews"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/button_show_brews" />
-    <Button
-            android:id="@+id/btnShowDetails"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Go details" />
+    </android.support.v4.widget.SwipeRefreshLayout>
+
     <Button
             android:id="@+id/btnAddNewBrew"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="New brew" />
-    <TextView
-            android:id="@+id/tarea"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Hello world"
-    />
 </LinearLayout>

@@ -3,9 +3,9 @@ package com.example.brewie.ui.main
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.LinearLayoutManager
 import android.widget.Toast
 import com.example.brewie.R
-import com.example.brewie.data.db.AppDatabase
 import com.example.brewie.injector
 import com.example.brewie.model.Beer
 import com.example.brewie.ui.brewdetails.BrewDetailsActivity
@@ -14,6 +14,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity(), MainScreen {
+    private val displayedBeers: MutableList<Beer> = mutableListOf()
+    private var beerAdapter: BeerAdapter? = null
 
     @Inject
     lateinit var mainPresenter: MainPresenter
@@ -24,9 +26,14 @@ class MainActivity : AppCompatActivity(), MainScreen {
         injector.inject(this)
 
 
-        btnShowBrews.setOnClickListener { mainPresenter.refreshBrews("TODO") }
-        btnShowDetails.setOnClickListener { mainPresenter.showBrewDetails() }
-        btnAddNewBrew.setOnClickListener { mainPresenter.showNewBrew() }
+        val llm = LinearLayoutManager(this@MainActivity)
+        llm.orientation = LinearLayoutManager.VERTICAL
+        beerList.layoutManager = llm
+        beerAdapter = BeerAdapter(this@MainActivity, displayedBeers)
+        beerList.adapter = beerAdapter
+
+
+        swipeRefreshLayoutBeers.setOnRefreshListener { mainPresenter.refreshBrews("") }
     }
 
     override fun onStart() {
@@ -40,11 +47,13 @@ class MainActivity : AppCompatActivity(), MainScreen {
     }
 
     override fun showBrews(brews: List<Beer>?) {
-        if(brews != null) {
-            var beersWithAlk = ""
-            brews.forEach { beersWithAlk += it.name + "" + it.abv + "\n"}
-            tarea.text = beersWithAlk
+        swipeRefreshLayoutBeers.isRefreshing = false
+        displayedBeers.clear()
+        if (brews != null) {
+            displayedBeers.addAll(brews)
         }
+
+        beerAdapter?.notifyDataSetChanged()
     }
 
     override fun showBrewDetails() {
