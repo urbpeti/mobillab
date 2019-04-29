@@ -27,6 +27,28 @@ class BrewDetailsActivity: AppCompatActivity(), BrewDetailsScreen {
         isMocked = intent.getBooleanExtra(MainActivity.KEY_BEER_MOCKED, false)
 
         btnBack.setOnClickListener { this.finish() }
+        btnUpdate.setOnClickListener { updateBeer(); this.finish() }
+        btnDelete.setOnClickListener { deleteBeer(); this.finish() }
+    }
+
+    private fun updateBeer() {
+        if(name.text != null && alcohol.text != null) {
+            val alcoholValue = if (alcohol.text.toString() == "") "0" else alcohol.text.toString()
+            brewPresenter.updateBeer(
+                Beer(
+                    id = beerId,
+                    name = name.text.toString(),
+                    image_url = imgUrlInput.text.toString(),
+                    abv = alcoholValue.toFloat()
+                )
+            )
+        }
+    }
+
+    private fun deleteBeer() {
+        if(beerId != null) {
+            brewPresenter.deleteBeer(beerId!!)
+        }
     }
 
     override fun onStart() {

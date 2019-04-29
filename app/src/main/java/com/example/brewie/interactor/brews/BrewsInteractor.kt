@@ -89,4 +89,19 @@ class BrewsInteractor @Inject constructor(private var brewApi: BrewApi, private 
         beerDao.insert(beerEntity)
     }
 
+    fun updateBeer(beer: Beer) {
+        val beerEntity = com.example.brewie.data.db.entity.Beer(
+            id = beer.id?.toLong(),
+            name = beer.name ?: "Noname",
+            firstBrewed = beer.first_brewed ?: "",
+            description = beer.description ?: "",
+            imgUrl = beer.image_url ?: "",
+            abv = beer.abv ?: 0f
+        )
+        beerDao.updateBeer(beerEntity)
+    }
+
+    fun deleteBeer(id: Int) {
+        beerDao.deleteBeer(id)
+    }
 }

@@ -27,6 +27,14 @@ class BrewDetailsPresenter @Inject constructor(private val executor: Executor,pr
         }
     }
 
+    fun updateBeer(beer: Beer) {
+        brewsInteractor.updateBeer(beer)
+    }
+
+    fun deleteBeer(beerId: Int) {
+        brewsInteractor.deleteBeer(beerId)
+    }
+
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onEventMainThread(event: GetBeerEvent) {
         if (event.throwable != null) {

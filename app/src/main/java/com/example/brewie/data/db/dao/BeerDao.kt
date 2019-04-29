@@ -1,9 +1,6 @@
 package com.example.brewie.data.db.dao
 
-import android.arch.persistence.room.Dao
-import android.arch.persistence.room.Insert
-import android.arch.persistence.room.Query
-import android.arch.persistence.room.Update
+import android.arch.persistence.room.*
 import com.example.brewie.data.db.entity.Beer
 
 @Dao
@@ -22,4 +19,7 @@ interface BeerDao {
 
     @Query("DELETE FROM beer")
     fun deleteAll()
+
+    @Query("DELETE FROM beer WHERE id= :id")
+    fun deleteBeer(id: Int)
 }

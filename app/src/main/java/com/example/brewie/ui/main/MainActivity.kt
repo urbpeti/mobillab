@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
+import android.view.ActionMode
 import android.widget.Toast
 import com.example.brewie.R
 import com.example.brewie.injector
@@ -61,11 +62,16 @@ class MainActivity : AppCompatActivity(), MainScreen {
         val intent = Intent(this, BrewDetailsActivity::class.java)
         intent.putExtra(KEY_BEER, beer.id)
         intent.putExtra(KEY_BEER_MOCKED, beer.isMock)
-        startActivity(intent)
+        startActivityForResult(intent, 1)
     }
 
     override fun showNewBrew() {
-        startActivity(Intent(this, NewBrewActivity::class.java))
+        startActivityForResult(Intent(this, NewBrewActivity::class.java), 1)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        mainPresenter.refreshBrews("")
+        super.onActivityResult(requestCode, resultCode, data)
     }
 
     override fun showNetworkError(errorMsg: String) {
