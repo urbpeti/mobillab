@@ -35,6 +35,7 @@ abstract class AppDatabase : RoomDatabase() {
         ): AppDatabase {
             if (INSTANCE == null) {
                 INSTANCE = Room.inMemoryDatabaseBuilder(context.applicationContext, AppDatabase::class.java)
+                    .fallbackToDestructiveMigration()
                     .allowMainThreadQueries()
                     .build()
             }

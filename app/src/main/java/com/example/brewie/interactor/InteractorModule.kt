@@ -11,5 +11,5 @@ import javax.inject.Singleton
 class InteractorModule {
     @Provides
     @Singleton
-    fun provideArtistsInteractor(brewApi: BrewApi, beerDao: BeerDao) = BrewsInteractor(brewApi, beerDao)
+    fun provideBrewsInteractor(brewApi: BrewApi, beerDao: BeerDao) = BrewsInteractor(brewApi, beerDao)
 }
