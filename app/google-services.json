@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "975652710292",
+    "firebase_url": "https://mobillabor-a5b53.firebaseio.com",
+    "project_id": "mobillabor-a5b53",
+    "storage_bucket": "mobillabor-a5b53.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:975652710292:android:295c3e0270ccbfad",
+        "android_client_info": {
+          "package_name": "com.example.brewie"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "975652710292-qjb2d23mdjecmd3n3i33r1b0vl6e0vuf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.brewie",
+            "certificate_hash": "b210ddf1bd4462f66fc53404dabe4fb63fe3001a"
+          }
+        },
+        {
+          "client_id": "975652710292-jssqmgvtj2dk6e3l7j38tc0h63aqrgi7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNgKxavy2-RnIXRjBPDGTOKV-PUXmH2XY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "975652710292-jssqmgvtj2dk6e3l7j38tc0h63aqrgi7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

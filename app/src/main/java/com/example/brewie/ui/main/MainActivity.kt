@@ -13,10 +13,17 @@ import com.example.brewie.ui.brewdetails.BrewDetailsActivity
 import com.example.brewie.ui.newbrew.NewBrewActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
+import com.google.firebase.analytics.FirebaseAnalytics
+
+
+
+
 
 class MainActivity : AppCompatActivity(), MainScreen {
     private val displayedBeers: MutableList<Beer> = mutableListOf()
     private var beerAdapter: BeerAdapter? = null
+    private var mFirebaseAnalytics: FirebaseAnalytics? = null
+
 
     @Inject
     lateinit var mainPresenter: MainPresenter
@@ -26,6 +33,7 @@ class MainActivity : AppCompatActivity(), MainScreen {
         setContentView(R.layout.activity_main)
         injector.inject(this)
 
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this)
 
         val llm = LinearLayoutManager(this@MainActivity)
         llm.orientation = LinearLayoutManager.VERTICAL
@@ -54,6 +62,10 @@ class MainActivity : AppCompatActivity(), MainScreen {
         if (brews != null) {
             displayedBeers.addAll(brews)
         }
+
+        val bundle = Bundle()
+        bundle.putString(FirebaseAnalytics.Param.SEARCH_TERM, "Refreshed Brews")
+        mFirebaseAnalytics!!.logEvent(FirebaseAnalytics.Event.LOGIN, bundle)
 
         beerAdapter?.notifyDataSetChanged()
     }
